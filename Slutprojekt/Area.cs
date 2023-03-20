@@ -2,9 +2,9 @@ using System;
 
 public class Area
 {
-    private Player player;
+    public Player player;
     private Enemy enemy;
-    public int end = 1;
+    public int gameStage = 1;
     private bool hasAttacked = false;
     private Vector2 textPos = new Vector2(150, 200);
     private Vector2 textPos2 = new Vector2(200, 250);
@@ -44,29 +44,29 @@ public class Area
 
         if(player.HP == 0 && enemy.HP == 0)     //kollar om någon av karaktärerna har 0 hälsa kvar och säger då hur spelet ska sluta
         {
-            end = 2;
+            gameStage = 2;
         }
         else if(player.HP == 0) 
         {
-            end = 3;
+            gameStage = 3;
         }
         else if(enemy.HP == 0)
         {
-            end = 4;
+            gameStage = 4;
         }
 
-        if(end ==4)
+        if(gameStage ==4)
         {
-            if(player.rect.x > 600)
+            if(player.rect.x > Raylib.GetScreenWidth())
             {
-                end = 5;
+                gameStage = 5;
             }
         }
     }
 
-    public void Draw()      //utritandet av karaktärerna och texten
+    public virtual void Draw()      //utritandet av karaktärerna och texten
     {
-        if(end == 1)        //end 1 är spelet
+        if(gameStage == 1)        //gameStage 1 är spelet
         {
             player.Draw();
             enemy.Draw();
@@ -76,16 +76,16 @@ public class Area
             Raylib.DrawTextEx(default, "Enemy HP:", textPosEHP, 20, 10, Color.BLACK);
             Raylib.DrawText(enemy.HP.ToString(), 700, 20, 25, Color.BLACK);
         }
-        if(end == 2)        //de olika sluten till spelet
+        if(gameStage == 2)        //de olika sluten till spelet
         {
             Raylib.DrawTextEx(default, "TIE", textPos, 20, 10, Color.BLACK);
             
         }
-        if(end == 3)
+        if(gameStage == 3)
         {
             Raylib.DrawTextEx(default, "You Lose", textPos, 20, 10, Color.BLACK);
         }
-        if(end == 4)
+        if(gameStage == 4)
         {
             player.Draw();
 

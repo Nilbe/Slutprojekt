@@ -10,14 +10,18 @@ Area2 two = new Area2();
 while (!Raylib.WindowShouldClose())     //utritning av Area
 {
     one.Update();
-    two.Update();
+
+    if(one.gameStage == 5)
+    {
+        two.Update();
+    }
 
     Raylib.BeginDrawing();
     Raylib.ClearBackground(Color.WHITE);
 
     one.Draw();
 
-    if(one.end == 5)
+    if(one.gameStage == 5)
     {
         two.Draw();
     }
