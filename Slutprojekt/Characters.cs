@@ -23,7 +23,7 @@ public class Characters     //all gemensam information för player och enemy
     public int HP = 100;
     public Rectangle rect;
 
-    public void Attack(Characters target)       //funktion för att kunna attackera
+    public virtual void Attack(Characters target)       //funktion för att kunna attackera
     {
         int damage = weapon.GetDamage();
         target.HP -= damage; 

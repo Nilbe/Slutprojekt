@@ -4,17 +4,24 @@ global using System.Numerics;
 Raylib.SetTargetFPS(60);
 Raylib.InitWindow(800,600, "Slagsmålsspelet i 2D");
 
-// gameStart start = new gameStart();
-Area hoth = new Area();
-// gameEnd end = new gameEnd();
+Area one = new Area();
+Area2 two = new Area2();
 
 while (!Raylib.WindowShouldClose())     //utritning av Area
 {
-    hoth.Update();
+    one.Update();
+    two.Update();
 
     Raylib.BeginDrawing();
     Raylib.ClearBackground(Color.WHITE);
 
-    hoth.Draw();
+    one.Draw();
+
+    if(one.end == 5)
+    {
+        two.Draw();
+    }
+    
+
     Raylib.EndDrawing();
 }

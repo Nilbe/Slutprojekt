@@ -2,10 +2,6 @@ using System;
 
 public class Player: Characters
 {
-    public string name { get; set; }    //variblar vars information ska hämtas från en API
-    public string height { get; set; }
-    public string mass { get; set; }
-
     public Player()
     {
       color = Color.BLUE;

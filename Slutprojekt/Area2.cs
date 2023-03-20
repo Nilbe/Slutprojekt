@@ -1,9 +1,9 @@
 using System;
 
-public class Area
+public class Area2
 {
     private Player player;
-    private Enemy enemy;
+    private Enemy2 enemy;
     public int end = 1;
     private bool hasAttacked = false;
     private Vector2 textPos = new Vector2(150, 200);
@@ -12,10 +12,10 @@ public class Area
     private Vector2 textPosEHP = new Vector2(500, 20);
     private Vector2 textPosTEMP = new Vector2(500, 20);
 
-    public Area()
+    public Area2()
     {
         player = new Player();
-        enemy = new Enemy();
+        enemy = new Enemy2();
 
         player.weapon = new weapon();
         enemy.weapon = new weapon();
@@ -54,14 +54,6 @@ public class Area
         {
             end = 4;
         }
-
-        if(end ==4)
-        {
-            if(player.rect.x > 600)
-            {
-                end = 5;
-            }
-        }
     }
 
     public void Draw()      //utritandet av karaktärerna och texten
@@ -92,7 +84,7 @@ public class Area
             Raylib.DrawTextEx(default, "Player HP:", textPosPHP, 20, 10, Color.BLACK);
             Raylib.DrawText(player.HP.ToString(), 250, 20, 25, Color.BLACK);
 
-            Raylib.DrawTextEx(default, "You Won and Got a Attack Potion", textPos, 20, 10, Color.BLACK);
+            Raylib.DrawTextEx(default, "You Won and Got a Health Potion", textPos, 20, 10, Color.BLACK);
             Raylib.DrawTextEx(default, "To Continue Go Right", textPos2, 20, 10, Color.BLACK);
         }
     }

@@ -1,13 +1,13 @@
 using System;
 
-public class Enemy: Characters      //all information unik för enemy
+public class Enemy2: Characters
 {
     string name { get;set; }
     
-    public Enemy()
+    public Enemy2()
     {
         color = Color.RED;
         rect = new Rectangle(500,300,32,32);
-        HP = 50;
+        HP = 100;
     }
 }
